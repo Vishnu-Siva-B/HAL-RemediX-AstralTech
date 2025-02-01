@@ -59,11 +59,11 @@ const TopNavBar = () => {
             Contact
           </a>
         </li>
-        {/* Login Button */}
+        {/* signin Button */}
         <li>
                   
         <Button asChild className="bg-green-500 hover:bg-green-600 text-white font-semibold py-2 px-4 rounded-lg">
-          <Link to="/signin">Login</Link>
+          <Link to="/signin">signin</Link>
         </Button>
         </li>
       </ul>

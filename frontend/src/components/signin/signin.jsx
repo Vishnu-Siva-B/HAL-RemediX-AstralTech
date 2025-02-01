@@ -16,7 +16,7 @@ const Signin = () => {
   const [showPassword, setShowPassword] = useState(false);
   const [errors, setErrors] = useState({ email: "", password: "" });
   const [alert, setAlert] = useState({ type: "", message: "" });
-  const { login, error } = useAuthStore();
+  const { signin, error } = useAuthStore();
 
   const validateEmail = (email) => {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -41,7 +41,7 @@ const Signin = () => {
     setErrors(newErrors);
 
     if (valid) {
-      const response = await login(email, password);
+      const response = await signin(email, password);
       if (response) {
         toast.success("Signin successful!");
       } else {
@@ -84,9 +84,9 @@ const Signin = () => {
       <Card className="w-full max-w-xl p-6 border-0 lg:rounded-none lg:border-gray-200 lg:border-l-2 bg-transparent">
         <form onSubmit={handleSubmit}>
           <CardHeader className="space-y-4">
-            <CardTitle className="text-5xl font-bold">Login</CardTitle>
+            <CardTitle className="text-5xl font-bold">signin</CardTitle>
             <CardDescription className="text-md">
-              Enter your email and password to login to your account
+              Enter your email and password to signin to your account
             </CardDescription>
           </CardHeader>
           <CardContent>
@@ -124,7 +124,7 @@ const Signin = () => {
                 {errors.password && <p className="text-red-500 text-sm">{errors.password}</p>}
               </div>
               <Button type="submit" className="w-full py-3 text-md font-semibold">
-                Login
+                signin
               </Button>
             </div>
           </CardContent>

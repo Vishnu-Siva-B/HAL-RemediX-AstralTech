@@ -16,7 +16,7 @@ const userSchema = new mongoose.Schema(
       enum: ["admin", "patient", "doctor"],
       required: true
     },
-    lastLogin: {
+    lastsignin: {
       type: Date,
       default: Date.now,
       required: function () {

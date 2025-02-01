@@ -66,6 +66,7 @@ const DoctorSignUp = React.lazy(() => import ('./pages/main/doctorSignUp.jsx'));
 const BookedPatient = React.lazy(() => import('./pages/doctor/patientAppointment.jsx'));
 const Dashboard = React.lazy(() => import('./pages/doctor/doctorDashboard.jsx'));
 const DoctorProfile = React.lazy(() => import('./pages/doctor/doctorProfile.jsx'));
+const DoctorMeet = React.lazy(() => import('./pages/doctor/doctorMeet.jsx'));
 
 // patient module routers
 const PatientDashboard = React.lazy(() => import ('./pages/patient/patientDashboard.jsx'));
@@ -88,6 +89,7 @@ const Router = () => {
         <Route path="/doctor/dashboard" element={<DoctorProtectedRoute><Dashboard /></DoctorProtectedRoute>} />
         <Route path="/doctor/profile" element={<DoctorProtectedRoute><DoctorProfile /></DoctorProtectedRoute>} />
         <Route path="/doctor/appointment" element={<DoctorProtectedRoute><BookedPatient /></DoctorProtectedRoute>} />
+        <Route path="/doctor/meet" element={<DoctorProtectedRoute><DoctorMeet /></DoctorProtectedRoute>} />
 
         <Route path="/patient/dashboard" element={<PatientProtectedRoute><PatientDashboard /></PatientProtectedRoute>} />
         <Route path="/patient/doctor" element={<PatientProtectedRoute><BookedDoctors /></PatientProtectedRoute>} />

@@ -27,13 +27,13 @@ export const signin = async (req, res) => {
     const token = generateTokenAndSetCookie(res, existingUser._id);
     console.log(token);
 
-    existingUser.lastLogin = Date.now();
+    existingUser.lastsignin = Date.now();
     await existingUser.save();
 
     if (isPasswordCorrect) {
       res.status(200).json({
         success: true,
-        message: "Login successful",
+        message: "signin successful",
         user: { ...existingUser._doc, password: undefined }
       });
     } else {
