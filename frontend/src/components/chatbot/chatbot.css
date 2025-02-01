@@ -1,0 +1,140 @@
+/* General Reset and Styling */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body, html {
+  width: 100%;
+  height: 100%;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+  color: white;
+  font-family: 'Roboto', sans-serif; /* Use a clean, modern font */
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+}
+
+/* Header Styles */
+.header {
+  padding-top: 25px;
+  padding-left: 30px;
+  padding-right: 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #1e1e1e; /* Darker header for contrast */
+}
+
+.header h2 {
+  font-size: 24px;
+  font-weight: bold;
+  color: #f1f1f1;
+}
+
+/* Chat Messages */
+.messages {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 20px 186px 68px;
+  overflow-y: auto;
+}
+
+.userMsg, .responseMsg {
+  background-color: #2f2f2f;
+  color: #f1f1f1;
+  padding: 12px 20px;
+  border-radius: 20px;
+  max-width: 65%;
+  margin-bottom: 15px;
+  word-wrap: break-word;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3); /* Subtle shadow for depth */
+}
+
+.userMsg {
+  align-self: flex-end;
+  background-color: #4b4b4b;
+}
+
+.responseMsg {
+  align-self: flex-start;
+  background-color: #333;
+}
+
+.bottom {
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  padding: 15px 20px;
+  background:transparent; /* Darker background for input area */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Input Box */
+.inputBox {
+  width: 80%;
+  display: flex;
+  align-items: center;
+  background-color: #3c3c3c;
+  border-radius: 30px;
+  padding: 12px 20px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Soft shadow around input */
+}
+
+.inputBox input {
+  flex: 1;
+  background: transparent;
+  border: none;
+  outline: none;
+  color: white;
+  font-size: 16px;
+  padding: 10px;
+  border-radius: 25px;
+  transition: all 0.3s ease;
+}
+
+.inputBox input:focus {
+  background-color: #484848;
+  box-shadow: 0 0 5px 3px rgba(0, 255, 0, 0.2); /* Subtle glow on focus */
+}
+
+.inputBox i {
+  color: #4caf50; /* Green send button */
+  font-size: 24px;
+  cursor: pointer;
+  margin-left: 10px;
+  transition: color 0.3s ease;
+}
+
+.inputBox i:hover {
+  color: #388e3c; /* Slightly darker green on hover */
+}
+
+@media screen and (max-width: 768px) {
+  .messages {
+    padding: 15px 20px;
+  }
+
+  .inputBox {
+    width: 90%;
+  }
+
+  .header h2 {
+    font-size: 20px;
+  }
+
+  .userMsg, .responseMsg {
+    max-width: 80%;
+  }
+}
