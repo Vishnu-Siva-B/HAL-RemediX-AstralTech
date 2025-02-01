@@ -116,10 +116,7 @@ const BookedDoctors = () => {
           </a>
           <a className="text-muted-foreground" onClick={() => navigate("/patient/support")}>
             Support
-          </a>
-          <a className="text-muted-foreground" onClick={() => navigate("/patient/meet")}>
-            Meet
-          </a>
+          </a>        
         </nav>
       </header>
 

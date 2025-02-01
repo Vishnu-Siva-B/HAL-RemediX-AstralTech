@@ -34,9 +34,7 @@ function Support() {
           <a href="#" className="text-foreground hover:text-foreground" onClick={() => navigate("/patient/support")}>
             Support
           </a>
-          <a href="#" className="text-muted-foreground hover:text-foreground" onClick={() => navigate("/patient/meet")}>
-            Meet
-          </a>
+         
         </nav>
         
         <Sheet>

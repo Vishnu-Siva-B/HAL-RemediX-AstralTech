@@ -133,14 +133,7 @@ const SymptomSelector = () => {
             onClick={() => navigate("/patient/support")}
           >
             Support
-          </a>
-          <a
-            href="#"
-            className="text-muted-foreground hover:text-foreground"
-            onClick={() => navigate("/patient/meet")}
-          >
-            Meet
-          </a>
+          </a>  
         </nav>
         <Sheet>
           <SheetTrigger asChild>

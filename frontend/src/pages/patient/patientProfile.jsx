@@ -83,9 +83,7 @@ const PatientProfiles = () => {
           <a href="#" className="text-muted-foreground transition-colors hover:text-foreground" onClick={() => navigate("/patient/support")}>
             Support
           </a>
-          <a href="#" className="text-muted-foreground transition-colors hover:text-foreground" onClick={() => navigate("/patient/meet")}>
-            Meet
-          </a>
+          
         </nav>
 
         {/* Dark Mode Toggle */}

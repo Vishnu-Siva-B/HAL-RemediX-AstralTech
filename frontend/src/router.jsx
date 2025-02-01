@@ -74,6 +74,7 @@ const BookedDoctors = React.lazy(() => import ('./pages/patient/bookedDoctors.js
 const PatientProfile = React.lazy(() => import ('./pages/patient/patientProfile.jsx'));
 const Support = React.lazy(() => import ('./pages/patient/support.jsx'));
 const VideoMeet = React.lazy(() => import ('./pages/patient/patientMeet.jsx'));
+const MultiSelect = React.lazy(() => import ('./pages/patient/multiselection.jsx'));
 
 const Router = () => {
   return (
@@ -85,7 +86,6 @@ const Router = () => {
         <Route path="/patient/signup" element={<RedirectAuthenticatedUser><SignupPage /></RedirectAuthenticatedUser>} />
         <Route path="/doctor/signup" element={<RedirectAuthenticatedUser><DoctorSignUp /></RedirectAuthenticatedUser>} />
 
-
         <Route path="/doctor/dashboard" element={<DoctorProtectedRoute><Dashboard /></DoctorProtectedRoute>} />
         <Route path="/doctor/profile" element={<DoctorProtectedRoute><DoctorProfile /></DoctorProtectedRoute>} />
         <Route path="/doctor/appointment" element={<DoctorProtectedRoute><BookedPatient /></DoctorProtectedRoute>} />
@@ -96,6 +96,7 @@ const Router = () => {
         <Route path="/patient/profile" element={<PatientProtectedRoute><PatientProfile /></PatientProtectedRoute>} />
         <Route path="/patient/support" element={<PatientProtectedRoute><Support /></PatientProtectedRoute>} />
         <Route path="/patient/meet" element={<PatientProtectedRoute><VideoMeet /></PatientProtectedRoute>} />
+        <Route path="/patient/multi-select" element={<MultiSelect />} />
 
         <Route path="*" element={<NotFound />} /> 
       </Routes>

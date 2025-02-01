@@ -1,9 +1,8 @@
 import { useEffect, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { Package2, Menu, Search, CircleUser } from "lucide-react";
+import { Package2, Menu, CircleUser } from "lucide-react";
 import { Sheet, SheetTrigger, SheetContent } from "@/shadcn/components/ui/sheet";
 import { Button } from "@/shadcn/components/ui/button";
-import { Input } from "@/shadcn/components/ui/input";
 import {
   DropdownMenu,
   DropdownMenuTrigger,
@@ -19,7 +18,6 @@ const VideoMeeting = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    // Function to load the Jitsi API script dynamically
     const loadJitsiScript = () => {
       if (window.JitsiMeetExternalAPI && !jitsi) {
         initializeJitsi();
@@ -32,13 +30,12 @@ const VideoMeeting = () => {
       }
     };
 
-    // Initialize Jitsi when the script has been loaded
     const initializeJitsi = () => {
-      if (!jitsiContainer.current || jitsi) return; // Only initialize if jitsi is not already initialized
-
+      if (!jitsiContainer.current || jitsi) return;
+      
       const domain = "meet.jit.si";
       const options = {
-        roomName: "YourCustomRoomName",  // Make sure the room name is unique
+        roomName: "YourCustomRoomName",
         width: "100%",
         height: "100%",
         parentNode: jitsiContainer.current,
@@ -48,44 +45,31 @@ const VideoMeeting = () => {
       };
 
       const api = new window.JitsiMeetExternalAPI(domain, options);
-      setJitsi(api);  // Store the API instance to prevent re-initialization
+      setJitsi(api);
     };
 
     loadJitsiScript();
 
-    // Clean up function to dispose of the Jitsi instance when the component is unmounted
     return () => {
       if (jitsi) {
         jitsi.dispose();
-        setJitsi(null);  // Clear Jitsi state to prevent a re-initialization
+        setJitsi(null);
       }
     };
-  }, [jitsi]); // Dependencies array ensures the Jitsi instance is only set once
+  }, [jitsi]);
 
   return (
-    <div className="flex flex-col h-screen">
-      {/* ✅ Header Section */}
+    <div className="flex flex-col h-screen overflow-hidden">
       <header className="sticky top-0 flex h-16 items-center gap-4 border-b bg-background px-4 md:px-6 z-50">
         <nav className="hidden flex-col gap-6 text-lg font-medium md:flex md:flex-row md:items-center md:gap-5 md:text-sm lg:gap-6">
           <a href="#" className="flex items-center gap-2 text-lg font-semibold md:text-base">
             <Package2 className="h-6 w-6" />
             <span className="sr-only">Acme Inc</span>
           </a>
-          <a className="text-muted-foreground transition-colors hover:text-foreground" onClick={() => navigate("/patient/dashboard")}>
-            Dashboard
-          </a>
-          <a className="text-muted-foreground transition-colors hover:text-foreground" onClick={() => navigate("/patient/doctors")}>
-            Doctors
-          </a>
-          <a className="text-muted-foreground transition-colors hover:text-foreground" onClick={() => navigate("/patient/profile")}>
-            Profile
-          </a>
-          <a className="text-muted-foreground hover:text-foreground" onClick={() => navigate("/patient/support")}>
-            Support
-          </a>
-          <a className="text-foreground hover:text-foreground" onClick={() => navigate("/patient/meet")}>
-            Meet
-          </a>
+          <a className="text-muted-foreground transition-colors hover:text-foreground" onClick={() => navigate("/patient/dashboard")}>Dashboard</a>
+          <a className="text-muted-foreground transition-colors hover:text-foreground" onClick={() => navigate("/patient/doctors")}>Doctors</a>
+          <a className="text-muted-foreground transition-colors hover:text-foreground" onClick={() => navigate("/patient/profile")}>Profile</a>
+          <a className="text-muted-foreground hover:text-foreground" onClick={() => navigate("/patient/support")}>Support</a>
         </nav>
 
         <Sheet>
@@ -110,12 +94,6 @@ const VideoMeeting = () => {
         </Sheet>
 
         <div className="flex w-full items-center gap-4 md:ml-auto md:gap-2 lg:gap-4">
-          <form className="ml-auto flex-1 sm:flex-initial">
-            <div className="relative">
-              <Search className="absolute left-2.5 top-2.5 h-4 w-4 text-muted-foreground" />
-              <Input type="search" placeholder="Search ..." className="pl-8 sm:w-[300px] md:w-[200px] lg:w-[300px]" />
-            </div>
-          </form>
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
               <Button variant="secondary" size="icon" className="rounded-full">
@@ -135,11 +113,10 @@ const VideoMeeting = () => {
         </div>
       </header>
 
-      {/* ✅ Jitsi Video Meeting Section */}
       <div
         ref={jitsiContainer}
         className="flex-1 bg-black w-full"
-        style={{ height: "calc(100vh - 64px)" }} // Adjust the height based on the header height (64px)
+        style={{ height: "calc(100vh - 64px)", overflowY: "hidden" }}
       ></div>
     </div>
   );
