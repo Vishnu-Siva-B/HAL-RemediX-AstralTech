@@ -70,6 +70,7 @@ const VideoMeeting = () => {
           <a className="text-muted-foreground transition-colors hover:text-foreground" onClick={() => navigate("/patient/doctors")}>Doctors</a>
           <a className="text-muted-foreground transition-colors hover:text-foreground" onClick={() => navigate("/patient/profile")}>Profile</a>
           <a className="text-muted-foreground hover:text-foreground" onClick={() => navigate("/patient/support")}>Support</a>
+          <a className="text-muted-foreground hover:text-foreground" onClick={() => navigate("/patient/mutli-select")}>Remedy</a>
         </nav>
 
         <Sheet>

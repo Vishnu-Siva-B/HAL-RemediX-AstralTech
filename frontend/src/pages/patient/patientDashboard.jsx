@@ -100,7 +100,14 @@ const PatientDashboard = () => {
                 onClick={() => navigate("/patient/support")}
               >
                 Support
-              </a>        
+              </a>  
+              <a
+                href="#"
+                className="text-muted-foreground hover:text-foreground"
+                onClick={() => navigate("/patient/multi-select")}
+              >
+                Remedy
+              </a>           
         </nav>
         <Sheet>
           <SheetTrigger asChild>
@@ -143,6 +150,7 @@ const PatientDashboard = () => {
               >
                 Support
               </a>
+              
             </nav>
           </SheetContent>
         </Sheet>
